@@ -4,8 +4,8 @@ from st2common.runners.base_action import Action
 
 class VaultBaseAction(Action):
 
-    def __init__(self, config):
-        super(VaultBaseAction, self).__init__(config)
+    def __init__(self, config, action_service):
+        super(VaultBaseAction, self).__init__(config, action_service)
         self.vault = self._get_client()
 
     def _get_client(self):
