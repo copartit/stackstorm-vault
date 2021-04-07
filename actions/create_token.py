@@ -12,7 +12,9 @@ class VaultCreateTokenAction(action.VaultBaseAction):
             no_default_policy=False,
             ttl=None,
             orphan=False,
-            wrap_ttl=None):
+            wrap_ttl=None,
+            profile=None):
+        self.setup(profile)
         return self.vault.create_token(token_id=token_id,
                                        policies=policies,
                                        meta=meta,

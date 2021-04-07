@@ -2,7 +2,8 @@ from lib import action
 
 
 class VaultReadKVAction(action.VaultBaseAction):
-    def run(self, path, kv_version, mount_point, version):
+    def run(self, path, kv_version, mount_point, version, profile=None):
+        self.setup(profile)
         value = None
 
         if kv_version == 1:

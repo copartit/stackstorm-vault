@@ -16,3 +16,7 @@ parameters:
         description: "Policy rules"
         required: true
         position: 1
+    profile:
+        type: string
+        description: "Name of connection profile (in pack config) to use to connect to vault. Default profile defined in pack config."
+        required: false

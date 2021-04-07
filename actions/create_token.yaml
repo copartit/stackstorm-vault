@@ -49,3 +49,7 @@ parameters:
         type: string
         description: ""
         required: false
+    profile:
+        type: string
+        description: "Name of connection profile (in pack config) to use to connect to vault. Default profile defined in pack config."
+        required: false

@@ -24,3 +24,7 @@ parameters:
       description: "The version of the kv *data*"
       required: true
       default: '1'
+    profile:
+      type: string
+      description: "Name of connection profile (in pack config) to use to connect to vault. Default profile defined in pack config."
+      required: false

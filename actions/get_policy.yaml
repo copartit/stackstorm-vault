@@ -11,3 +11,7 @@ parameters:
         description: "Policy to read from Vault"
         required: true
         position: 0
+    profile:
+        type: string
+        description: "Name of connection profile (in pack config) to use to connect to vault. Default profile defined in pack config."
+        required: false

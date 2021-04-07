@@ -4,3 +4,8 @@ runner_type: python-script
 description: "List Policies from Vault server"
 enabled: true
 entry_point: "list_policies.py"
+parameters:
+  profile:
+    type: string
+    description: "Name of connection profile (in pack config) to use to connect to vault. Default profile defined in pack config."
+    required: false
