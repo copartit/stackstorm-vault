@@ -19,7 +19,7 @@ class VaultBaseAction(Action):
         verify = self._get_verify(connection_profile)
 
         auth_method = connection_profile.get("auth_method", "token")
-        token = connection_profile["token"]
+        token = connection_profile.get("token")
 
         # token is passed during client init to allow client to also
         # get the token from VAULT_TOKEN env var or ~/.vault-token
@@ -33,7 +33,12 @@ class VaultBaseAction(Action):
         # token is handled during client init
         # other auth methods will override it as needed
         if auth_method == "token":
-            pass
+            if token is None:
+                raise KeyError(
+                    "token is required when auth_method is 'token'. Please adjust pack config. (profile: {})".format(
+                        profile_name
+                    )
+                )
         elif auth_method == "approle":
             client.auth.approle.login(
                 role_id=connection_profile["role_id"],
