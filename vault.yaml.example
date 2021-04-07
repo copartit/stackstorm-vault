@@ -1,5 +1,5 @@
 ---
-default-profile: dev
+default_profile: dev
 profiles:
   dev: # a profile name to be provided in actions
     url: 'https://vault.dev.example.com:8200'

@@ -1,6 +1,6 @@
 ---
 # top-level config should be for config that is not vault-instance specific.
-default-profile:
+default_profile:
   description: Which profile to use by default in actions (if only one profile is defined, that is the default; required if there is more than one profile)
   type: "string"
   secret: false
