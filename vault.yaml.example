@@ -1,4 +1,31 @@
 ---
+default-profile: dev
+profiles:
+  dev: # a profile name to be provided in actions
+    url: 'https://vault.dev.example.com:8200'
+    cert: ''
+    verify: false
+
+    auth_method: token
+    token: ''
+
+    # auth_method: approle
+    # role_id: '00000000-0000-0000-0000-000000000000'
+    # secret_id: '00000000-0000-0000-0000-000000000000'
+
+  prod:
+    url: 'https://vault.prod.example.com:8200'
+    cert: ''
+    verify: false
+
+    # auth_method: token
+    # token: ''
+
+    auth_method: approle
+    role_id: '00000000-0000-0000-0000-000000000000'
+    secret_id: '00000000-0000-0000-0000-000000000000'
+
+# All connection config should be under profiles. This is here for backwards compatibility
 url: 'https://127.0.0.1:8200'
 cert: ''
 verify: false

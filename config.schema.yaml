@@ -1,4 +1,27 @@
 ---
+# top-level config should be for config that is not vault-instance specific.
+default-profile:
+  description: Which profile to use by default in actions
+  type: "string"
+  secret: false
+  required: false
+  default: "@@@top-level@@@"  # magic string to use top-level connection
+
+# this allows something like:
+# profiles:
+#   profile_name:
+#     url: ...
+profiles:
+  description: "Vault Connection profiles (one or more vault instances and/or credentials)."
+  type: object
+  required: false
+  # TODO: require at least one profile when dropping top-level profile
+  # minProperties: 1
+  properties: {}
+  additionalProperties:
+    type: object
+    additionalProperties: false
+    properties: &profile
       url:
         description: "URL for the Vault server"
         type: "string"
@@ -56,3 +79,6 @@
         type: "string"
         secret: true
         required: false
+
+# TODO: drop top-level connection details in favor of profiles
+<<: *profile
