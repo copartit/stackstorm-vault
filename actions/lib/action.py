@@ -61,16 +61,30 @@ class VaultBaseAction(Action):
         # TODO: Drop this top-level stuff in favor of taking the first entry
         default_profile_name = config.pop("default-profile", "@@@top-level@@@")
         if default_profile_name == "@@@top-level@@@":
-            for key in ["url", "cert", "verify", "auth_method", "token", "role_id", "secret_id"]:
+            for key in [
+                "url",
+                "cert",
+                "verify",
+                "auth_method",
+                "token",
+                "role_id",
+                "secret_id",
+            ]:
                 default_profile[key] = config.get(key)
 
         profiles = config.pop("profiles", {})
-        profile = profiles.get(profile_name, profiles.get(default_profile_name, default_profile))
+        profile = profiles.get(
+            profile_name, profiles.get(default_profile_name, default_profile)
+        )
         if profile.get("url", None) is None:
             if len(profiles) == 1:
                 profile = profiles.popitem()
             else:
-                raise KeyError("Unable to find vault connection profile (default: {})".format(default_profile_name))
+                raise KeyError(
+                    "Unable to find vault connection profile (default: {})".format(
+                        default_profile_name
+                    )
+                )
         return profile
 
     @staticmethod
