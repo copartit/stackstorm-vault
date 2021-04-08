@@ -1,10 +1,13 @@
+import logging
+
 import hvac
 from st2common.runners.base_action import Action
 
 
 class VaultBaseAction(Action):
 
-    vault = None
+    logger = None  # type: logging.Logger
+    vault = None  # type: hvac.Client
 
     def __init__(self, config, action_service):
         super(VaultBaseAction, self).__init__(config, action_service)
@@ -14,6 +17,7 @@ class VaultBaseAction(Action):
 
     def _get_client(self, profile_name=None):
         connection_profile = self._build_profile(profile_name)
+        self.logger.debug(connection_profile)
 
         url = connection_profile["url"]
         verify = self._get_verify(connection_profile)
