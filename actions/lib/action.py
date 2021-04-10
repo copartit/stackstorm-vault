@@ -17,7 +17,6 @@ class VaultBaseAction(Action):
 
     def _get_client(self, profile_name=None):
         connection_profile = self._build_profile(profile_name)
-        self.logger.debug(connection_profile)
 
         url = connection_profile["url"]
         verify = self._get_verify(connection_profile)
