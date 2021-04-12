@@ -62,7 +62,7 @@ class VaultBaseAction(Action):
         default_profile = {}
 
         # TODO: Drop this top-level stuff in favor of taking the first entry
-        default_profile_name = config.pop("default-profile", "@@@top-level@@@")
+        default_profile_name = config.pop("default_profile", "@@@top-level@@@")
         if default_profile_name == "@@@top-level@@@":
             for key in [
                 "url",
