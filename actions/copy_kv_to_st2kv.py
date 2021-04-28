@@ -1,3 +1,5 @@
+import json
+
 from read_kv import VaultReadKVAction
 
 
@@ -13,6 +15,11 @@ class VaultCopyKVtoST2KVAction(VaultReadKVAction):
             version=version,
             profile=profile,
         )
+        if not isinstance(str, value):
+            try:
+                value = json.dumps(value)
+            except TypeError:
+                value = str(value)
         return self.action_service.set_value(
             name=st2kv_key, value=value, ttl=st2kv_ttl, local=False, encrypt=True
         )
