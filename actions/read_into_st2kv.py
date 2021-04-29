@@ -7,7 +7,7 @@ class VaultReadIntoST2KVAction(VaultReadAction):
     # noinspection PyMethodOverriding
     def run(self, st2kv_key, st2kv_ttl, path, profile=None):
         value = super(VaultReadIntoST2KVAction, self).run(path=path, profile=profile)
-        if not isinstance(str, value):
+        if not isinstance(value, str):
             try:
                 value = json.dumps(value)
             except TypeError:

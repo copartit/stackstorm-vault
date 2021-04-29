@@ -15,7 +15,7 @@ class VaultReadKVintoST2KVAction(VaultReadKVAction):
             version=version,
             profile=profile,
         )
-        if not isinstance(str, value):
+        if not isinstance(value, str):
             try:
                 value = json.dumps(value)
             except TypeError:

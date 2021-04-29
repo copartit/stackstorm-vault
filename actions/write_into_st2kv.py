@@ -8,7 +8,7 @@ class VaultWriteIntoST2KVAction(VaultWriteAction):
         output = super(VaultWriteIntoST2KVAction, self).run(
             path=path, values=values, profile=profile
         )
-        if not isinstance(str, output):
+        if not isinstance(output, str):
             try:
                 output = json.dumps(output)
             except TypeError:
