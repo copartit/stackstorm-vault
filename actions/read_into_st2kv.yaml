@@ -11,15 +11,17 @@ parameters:
     required: True
     type: string
     description: "Key to save in the ST2 datastore"
+    position: 0
   st2kv_ttl:
     type: integer
     description: "Optional TTL for the value in the ST2 datastore"
     required: False
+    position: 1
   path:
     type: string
     description: "Key to read from Vault"
     required: true
-    position: 0
+    position: 2
   profile:
     type: string
     description: "Name of connection profile (in pack config) to use to connect to vault. Default profile defined in pack config."
