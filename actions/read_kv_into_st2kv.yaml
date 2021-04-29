@@ -1,11 +1,11 @@
 ---
-name: copy_kv_to_st2kv
+name: read_kv_into_st2kv
 runner_type: python-script
 description: >-
   Read a kv value from Vault server and copy it (encrypted) to ST2 datastore.
   In workflows, use <% st2kv(system.<st2kv_key>, decrypt=>true) %> to retrieve it safely.
 enabled: true
-entry_point: "copy_kv_to_st2kv.py"
+entry_point: read_kv_into_st2kv.py
 parameters:
   st2kv_key:
     required: True

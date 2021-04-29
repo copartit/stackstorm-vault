@@ -1,0 +1,26 @@
+---
+name: read_into_st2kv
+runner_type: python-script
+description: >-
+  Read value from Vault server and copy it (encrypted) to ST2 datastore.
+  In workflows, use <% st2kv(system.<st2kv_key>, decrypt=>true) %> to retrieve it safely.
+enabled: true
+entry_point: read_into_st2kv.py
+parameters:
+  st2kv_key:
+    required: True
+    type: string
+    description: "Key to save in the ST2 datastore"
+  st2kv_ttl:
+    type: integer
+    description: "Optional TTL for the value in the ST2 datastore"
+    required: False
+  path:
+    type: string
+    description: "Key to read from Vault"
+    required: true
+    position: 0
+  profile:
+    type: string
+    description: "Name of connection profile (in pack config) to use to connect to vault. Default profile defined in pack config."
+    required: false

@@ -3,10 +3,10 @@ import json
 from read import VaultReadAction
 
 
-class VaultReadToST2KVAction(VaultReadAction):
+class VaultReadIntoST2KVAction(VaultReadAction):
     # noinspection PyMethodOverriding
     def run(self, st2kv_key, st2kv_ttl, path, profile=None):
-        value = super(VaultReadToST2KVAction, self).run(path=path, profile=profile)
+        value = super(VaultReadIntoST2KVAction, self).run(path=path, profile=profile)
         if not isinstance(str, value):
             try:
                 value = json.dumps(value)
