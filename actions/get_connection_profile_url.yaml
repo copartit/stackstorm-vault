@@ -1,0 +1,13 @@
+---
+name: get_connection_profile_url
+runner_type: python-script
+description: >-
+  Return the vault url configured (in pack config) for a given connection profile.
+  This may be useful for configuring application servers to use different vault instances.
+enabled: true
+entry_point: "get_connection_profile_url.py"
+parameters:
+  profile:
+    type: string
+    description: "Name of connection profile (in pack config) to use to connect to vault. Default profile defined in pack config."
+    required: false
