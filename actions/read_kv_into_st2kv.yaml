@@ -10,6 +10,7 @@ parameters:
   st2kv_key:
     required: True
     type: string
+    description: "Key to save in the ST2 datastore"
     position: 0
   st2kv_ttl:
     type: integer
