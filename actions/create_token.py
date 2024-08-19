@@ -15,7 +15,7 @@ class VaultCreateTokenAction(action.VaultBaseAction):
             wrap_ttl=None,
             profile=None):
         self.setup(profile)
-        return self.vault.auth.token.create(token_id=token_id,
+        return self.vault.auth.token.create(id=token_id,
                                        policies=policies,
                                        meta=meta,
                                        no_parent=no_parent,
