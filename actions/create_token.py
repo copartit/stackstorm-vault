@@ -11,7 +11,6 @@ class VaultCreateTokenAction(action.VaultBaseAction):
             num_uses=None,
             no_default_policy=False,
             ttl=None,
-            orphan=False,
             wrap_ttl=None,
             profile=None):
         self.setup(profile)
@@ -23,5 +22,4 @@ class VaultCreateTokenAction(action.VaultBaseAction):
                                        num_uses=num_uses,
                                        no_default_policy=no_default_policy,
                                        ttl=ttl,
-                                       orphan=orphan,
                                        wrap_ttl=wrap_ttl)

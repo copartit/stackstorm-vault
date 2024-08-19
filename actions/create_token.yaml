@@ -40,11 +40,6 @@ parameters:
         type: integer
         description: ""
         required: false
-    orphan:
-        type: boolean
-        description: ""
-        required: false
-        default: false
     wrap_ttl:
         type: string
         description: ""
