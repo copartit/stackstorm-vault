@@ -15,7 +15,7 @@ parameters:
         description: ""
         required: false
     meta:
-        type: string
+        type: object
         description: ""
         required: false
     no_parent:
