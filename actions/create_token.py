@@ -11,11 +11,10 @@ class VaultCreateTokenAction(action.VaultBaseAction):
             num_uses=None,
             no_default_policy=False,
             ttl=None,
-            orphan=False,
             wrap_ttl=None,
             profile=None):
         self.setup(profile)
-        return self.vault.create_token(token_id=token_id,
+        return self.vault.auth.token.create(id=token_id,
                                        policies=policies,
                                        meta=meta,
                                        no_parent=no_parent,
@@ -23,5 +22,4 @@ class VaultCreateTokenAction(action.VaultBaseAction):
                                        num_uses=num_uses,
                                        no_default_policy=no_default_policy,
                                        ttl=ttl,
-                                       orphan=orphan,
                                        wrap_ttl=wrap_ttl)

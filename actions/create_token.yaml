@@ -15,7 +15,7 @@ parameters:
         description: ""
         required: false
     meta:
-        type: string
+        type: object
         description: ""
         required: false
     no_parent:
@@ -40,11 +40,6 @@ parameters:
         type: integer
         description: ""
         required: false
-    orphan:
-        type: boolean
-        description: ""
-        required: false
-        default: false
     wrap_ttl:
         type: string
         description: ""
